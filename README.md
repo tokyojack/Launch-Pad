@@ -1,11 +1,11 @@
-<h2  align="center">LaunchPad</h2>
+<h2  align="center">Launch-Pad</h2>
 <p  align="center">A Bukkit plugin that launches a player up into the skies when jumping on a pad</p>
 
 <br/>
 
 ## Compiling
 
-1. Clone this repo ```git clone https://github.com/tokyojack/LaunchPad```
+1. Clone this repo ```git clone https://github.com/tokyojack/Launch-Pad```
 2. Add the project to your IDE
 3. Add Lombok and and Spigot/Bukkit .jar to the project 
 4. Edit the plugin to your needs
