@@ -10,7 +10,7 @@ import me.tokyojack.spigot.launchpad.utils.kommand.Kommand;
 public class LaunchpadCommand extends Kommand {
 
 	public LaunchpadCommand() {
-		super("launchpad", "launchpad command", new ArrayList<String>(Arrays.asList("launchpads", "lp", "lps")));
+		super("launchpad", "launchpad command", Arrays.asList("launchpads", "lp", "lps"));
 	}
 
 	@Override

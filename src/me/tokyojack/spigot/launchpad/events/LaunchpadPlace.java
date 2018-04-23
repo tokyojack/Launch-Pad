@@ -28,10 +28,12 @@ public class LaunchpadPlace implements Listener {
 
 		Map<String, LaunchPad> launchpads = Core.getPlugin().getLaunchPads();
 
-		if (launchpads.containsKey(blockName)) {
+		// Checks if the placed block has the same name as the available launch pads
+		if (launchpads.containsKey(blockName))
+			// Sets Metadata with the key "lp" and value of the Launchpads name
 			event.getBlock().setMetadata("lp", new FixedMetadataValue(Core.getPlugin(),
 					ChatColor.stripColor(launchpads.get(blockName).getItem().getItemMeta().getDisplayName())));
-		}
+		
 
 	}
 

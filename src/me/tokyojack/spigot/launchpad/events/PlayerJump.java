@@ -17,21 +17,27 @@ public class PlayerJump implements Listener {
 	public void onLaunchpadJump(PlayerJumpEvent event) {
 		Player player = event.getPlayer();
 
+		// Stops the player from being boosted if crouching
 		if (player.isSneaking())
 			return;
 
+		// Get's block under person
 		Block blockUnderPlayer = player.getLocation().subtract(0, 1, 0).getBlock();
 
+		// Checks if the block has the metadata "lp" (Launchpad). (Given when placed)
 		if (!blockUnderPlayer.hasMetadata("lp"))
 			return;
 
+		// Gets the launch pads name that is under the player
 		String launchpadName = blockUnderPlayer.getMetadata("lp").get(0).asString();
 
 		Map<String, LaunchPad> launchpads = Core.getPlugin().getLaunchPads();
 
-		if (launchpads.containsKey(launchpadName)) {
+		// Checks if the placed block has the same name as the available launch pads
+		if (launchpads.containsKey(launchpadName))
+			// Runs the onJump of the LaunchPad object (/launchpad)
 			launchpads.get(launchpadName).onJump(player);
-		}
+		
 	}
 
 }

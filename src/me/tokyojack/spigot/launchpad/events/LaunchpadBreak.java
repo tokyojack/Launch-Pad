@@ -17,22 +17,22 @@ public class LaunchpadBreak implements Listener {
 	public void onLaunchpadBreak(BlockBreakEvent event) {
 		Block block = event.getBlock();
 
+		// Checks if the block has the metadata "lp" (Launchpad). (Given when placed)
 		if (!block.hasMetadata("lp"))
 			return;
 
-		String launcpadName = event.getBlock().getMetadata("lp").get(0).asString();
+		String launcpadName = block.getMetadata("lp").get(0).asString();
 
-		
 		Map<String, LaunchPad> launchpads = Core.getPlugin().getLaunchPads();
+
+		if(!launchpads.containsKey(launcpadName))
+			return;
 		
-		if(launchpads.containsKey(launcpadName)){	
-			block.getWorld().dropItem(block.getLocation(), launchpads.get(launcpadName).getItem());
-			Core.getPlugin().getLaunchPads().get(launcpadName);
-			event.setCancelled(true);
-			block.setType(Material.AIR);
-		}
+		block.getWorld().dropItem(block.getLocation(), launchpads.get(launcpadName).getItem());
+		Core.getPlugin().getLaunchPads().get(launcpadName);
 		
-		
+		event.setCancelled(true);
+		block.setType(Material.AIR);
 	}
 
 }

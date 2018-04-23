@@ -21,6 +21,7 @@ public abstract class LaunchPad {
 	public LaunchPad(Material blockType, String name, String... lore) {
 		this.blockType = blockType;
 		this.name = ChatColor.translateAlternateColorCodes('&', name + " &fLaunchpad");
+		// Could stream and map if you'd like
 		Arrays.asList(lore).forEach(loreLine -> this.lore.add(ChatColor.translateAlternateColorCodes('&', loreLine)));
 	}
 
